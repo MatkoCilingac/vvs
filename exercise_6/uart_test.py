@@ -5,7 +5,7 @@ from machine import UART
 
 uart_instance : UART = UART(1)
 uart_instance.init(baudrate=9600, bits=8, parity=None, stop=1)
-uart_instance.init(tx=Pin(15), rx=Pin(23))
+uart_instance.init(tx=Pin(23), rx=Pin(15))
 uart_instance.init(timeout=0, timeout_char=0)
 buffer :str =""
 while True:

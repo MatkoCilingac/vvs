@@ -1,5 +1,5 @@
 import sys
 
-sys.path.append('./exercise_6')
+sys.path.append('./exercise_7')
 
-import exercise_6.uart_test
+import exercise_7.engines
