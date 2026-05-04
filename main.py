@@ -1,6 +1,9 @@
 import sys
+sys.path.append('./exercise_9')
+sys.path.append('./microdot_libraries')
+sys.path.append('./temnplates')
+sys.path.append('./webpage')
 
-sys.path.append('./exercise_8')
-import exercise_8.wifi_test
-import exercise_8.socket_test
 
+
+import webpage.webpage_application

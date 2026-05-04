@@ -1,0 +1,132 @@
+{% args params %}
+
+!DOCTYPE html
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Testing webpage</title>
+
+        <!--suppress HtmlUnknownTarget -->
+        <link rel="preload" href="/style.css" as="style">
+        <!--suppress HtmlUnknownTarget -->
+        <link rel="stylesheet" href="/style.css">
+    </head>
+
+    <body>
+
+        <!-- Header -->
+        <h1>Hello World</h1>
+
+        <!-- Text -->
+        <p>text: {{ params['text']['parameter_1'] }}</p>
+        <p>text2: {{ params['text']['parameter_2'] }}</p>
+
+        <a id="button_section"></a>
+        <h3>Button</h3>
+
+        <!-- Button control -->
+        <!--suppress HtmlUnknownTarget -->
+        <form action="/button_1#button_section" method="post">
+            <button type="submit">Press me</button>
+        </form>
+
+        <a id="data_field_section"></a>
+        <h3>Data field</h3>
+
+        <!-- Data field control -->
+        <!--suppress HtmlUnknownTarget -->
+        <form action="/data_field_1#data_field_section" method="post" >
+            <label for="text_field">Your name : </label>
+            <input type="text" id="text_field" name="name">
+            <p></p>
+            <input type="submit" value="send!" >
+        </form>
+
+        <a id="radio_button_section"></a>
+        <h3>Radio button</h3>
+
+        <!-- Radio button control -->
+        <!--suppress HtmlUnknownTarget -->
+        <form action="/fplf#radio_button_section" autocomplete="off" method="post">
+            <input type="radio" id="html" name="fav_lang" value="HTML" {{ params['radio']['fplf_html'] }}>
+            <label for="html">HTML</label><br>
+
+            <input type="radio" id="css" name="fav_lang" value="CSS" {{ params['radio']['fplf_css'] }}>
+            <label for= "css">CSS</label><br>
+
+            <input type= "radio" id="cpp" name="fav_lang" value="CPP" {{ params['radio']['fplf_cpp'] }}>
+            <label for="cpp">C++</label><br>
+
+            <p></p>
+            <input type="submit" value="send!">
+        </form>
+
+        <a id="switch_button_section"></a>
+        <h3>Switch button</h3>
+
+        <!-- Switch button control -->
+        <!--suppress HtmlUnknownTarget -->
+        <form action="/switch_button#switch_button_section" method="post">
+            <label class="switch">
+                <input type="checkbox" id="sw1" name="led" {{ params['switch']['led_checked'] }}>
+                <span class="slider"></span>
+            </label>
+
+            <label for="sw1">switch button</label>
+
+            <p></p>
+            <input type="submit" value="send!">
+        </form>
+
+        <a id="slider_section"></a>
+        <h3>Slider</h3>
+
+        <!-- Slider control -->
+        <!--suppress HtmlUnknownTarget -->
+        <form action="/slider#slider_section" method="post">
+            <label for="slider_1">setting exact value: <span id="slider_value">{{ params['sliders']['pwm_value'] }}</span></label>
+            <p></p>
+            <input type="range" min="0" max="255" step="1" id="slider_1" name="pwm" value="{{ params['sliders']['pwm_value'] }}"
+                   oninput="document.getElementById('slider_value').textContent = this.value">
+            <p></p>
+            <input type="submit" value="send!">
+        </form>
+
+        <a id="dropdown_menu_section"></a>
+        <h3>Dropdown menu</h3>
+
+        <!-- Dropdown menu control -->
+        <!--suppress HtmlUnknownTarget -->
+        <form action="/dropdown_menu#dropdown_menu_section" method="post">
+            <label for="dropdown_1">Dropdown menu</label>
+            <p></p>
+
+            <select id="dropdown_1" name="mode">
+                <option value="auto" {{ params['dropdown']['mode_auto'] }}>Auto</option>
+                <option value="manual" {{ params['dropdown']['mode_manual'] }}>Manual</option>
+                <option value="off" {{ params['dropdown']['mode_off'] }}>Off</option>
+            </select>
+
+            <p></p>
+            <input type="submit" value="send!">
+        </form>
+
+        <a id="progres_bar_section"></a>
+        <h3>Progress bar</h3>
+
+        <!-- Progress bar control -->
+        <!--suppress HtmlUnknownTarget -->
+        <form action="/progress_bar#progres_bar_section" method="post">
+            <label for="progres_bar_1">Progress: {{ params['progress']['progress'] }}</label>
+            <p></p>
+
+            <progress id="progres_bar_1" value="{{ params['progress']['progress'] }}" max="100"></progress>
+
+            <p></p>
+            <input type="submit" value="send!">
+        </form>
+
+    </body>
+</html>
